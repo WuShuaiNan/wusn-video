@@ -2,6 +2,7 @@ package com.wusn.video.impl.configuration;
 
 import com.dwarfeng.subgrade.impl.bean.MapStructBeanTransformer;
 import com.dwarfeng.subgrade.impl.dao.HibernateBatchBaseDao;
+import com.dwarfeng.subgrade.impl.dao.HibernateEntireLookupDao;
 import com.dwarfeng.subgrade.sdk.bean.key.HibernateLongIdKey;
 import com.dwarfeng.subgrade.sdk.hibernate.modification.DefaultDeletionMod;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
@@ -36,6 +37,17 @@ public class DaoConfiguration {
                 HibernateRtsp.class,
                 new DefaultDeletionMod<>(),
                 batchSize
+        );
+    }
+
+    @Bean
+    public HibernateEntireLookupDao<Rtsp, HibernateRtsp> rtspHibernateEntireLookupDao() {
+        return new HibernateEntireLookupDao<>(
+                template,
+                new MapStructBeanTransformer<>(
+                        Rtsp.class, HibernateRtsp.class, HibernateMapper.class
+                ),
+                HibernateRtsp.class
         );
     }
 

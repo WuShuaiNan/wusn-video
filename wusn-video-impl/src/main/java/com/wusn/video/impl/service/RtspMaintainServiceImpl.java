@@ -1,8 +1,11 @@
 package com.wusn.video.impl.service;
 
 import com.dwarfeng.subgrade.impl.service.CustomBatchCrudService;
+import com.dwarfeng.subgrade.impl.service.DaoOnlyEntireLookupService;
 import com.dwarfeng.subgrade.sdk.interceptor.analyse.BehaviorAnalyse;
 import com.dwarfeng.subgrade.sdk.interceptor.analyse.SkipRecord;
+import com.dwarfeng.subgrade.stack.bean.dto.PagedData;
+import com.dwarfeng.subgrade.stack.bean.dto.PagingInfo;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.exception.ServiceException;
 import com.wusn.video.stack.bean.entity.Rtsp;
@@ -17,10 +20,14 @@ public class RtspMaintainServiceImpl implements RtspMaintainService {
 
     private final CustomBatchCrudService<LongIdKey, Rtsp> crudService;
 
+    private DaoOnlyEntireLookupService<Rtsp> entireLookupService;
+
     public RtspMaintainServiceImpl(
-            CustomBatchCrudService<LongIdKey, Rtsp> crudService
+            CustomBatchCrudService<LongIdKey, Rtsp> crudService,
+            DaoOnlyEntireLookupService<Rtsp> entireLookupService
     ) {
         this.crudService = crudService;
+        this.entireLookupService = entireLookupService;
     }
 
     @Override
@@ -173,5 +180,15 @@ public class RtspMaintainServiceImpl implements RtspMaintainService {
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
     public List<LongIdKey> batchInsertOrUpdate(@SkipRecord List<Rtsp> elements) throws ServiceException {
         return crudService.batchInsertOrUpdate(elements);
+    }
+
+    @Override
+    public PagedData<Rtsp> lookup() throws ServiceException {
+        return entireLookupService.lookup();
+    }
+
+    @Override
+    public PagedData<Rtsp> lookup(PagingInfo pagingInfo) throws ServiceException {
+        return entireLookupService.lookup(pagingInfo);
     }
 }
