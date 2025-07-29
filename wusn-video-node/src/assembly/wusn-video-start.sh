@@ -1,8 +1,8 @@
 #!/bin/sh
 # 程序的根目录。
-basedir="/usr/local/rtsp2webrtc"
+basedir="/usr/local/wusn-video"
 # 日志的根目录。
-logdir="/var/log/rtsp2webrtc"
+logdir="/var/log/wusn-video"
 
 # JVM 内存设置。
 # 如果您希望系统自动分配内存，注释掉下方注释...
@@ -47,4 +47,4 @@ eval \
   "$java_fixed_opts" \
   "${mainClass}" \
   >/dev/null 2>&1 "&"
-echo $! >"$basedir/rtsp2webrtc.pid"
+echo $! >"$basedir/wusn-video.pid"

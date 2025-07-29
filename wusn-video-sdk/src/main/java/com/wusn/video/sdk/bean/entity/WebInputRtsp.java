@@ -3,7 +3,7 @@ package com.wusn.video.sdk.bean.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.dwarfeng.subgrade.sdk.bean.key.WebInputLongIdKey;
 import com.dwarfeng.subgrade.stack.bean.Bean;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.stack.bean.entity.Rtsp;
 
 import java.util.Objects;
 
@@ -13,13 +13,13 @@ import java.util.Objects;
  * @author wusn
  * @since 1.0.0
  */
-public class WebInputRTSP implements Bean {
+public class WebInputRtsp implements Bean {
 
-    public static RTSP toStackBean(WebInputRTSP webInputRTSP) {
+    public static Rtsp toStackBean(WebInputRtsp webInputRTSP) {
         if (Objects.isNull(webInputRTSP)) {
             return null;
         } else {
-            return new RTSP(
+            return new Rtsp(
                     WebInputLongIdKey.toStackBean(webInputRTSP.getKey()),
                     webInputRTSP.getLabel(),
                     webInputRTSP.getUrl(),
@@ -40,10 +40,10 @@ public class WebInputRTSP implements Bean {
     @JSONField(name = "remark")
     private String remark;
 
-    public WebInputRTSP() {
+    public WebInputRtsp() {
     }
 
-    public WebInputRTSP(WebInputLongIdKey key, String label, String url, String remark) {
+    public WebInputRtsp(WebInputLongIdKey key, String label, String url, String remark) {
         this.key = key;
         this.label = label;
         this.url = url;

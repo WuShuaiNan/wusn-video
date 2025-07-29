@@ -115,21 +115,21 @@
         </file>
         <file>
             <outputDirectory>bin</outputDirectory>
-            <source>src/assembly/rtsp2webrtc-start.sh</source>
+            <source>src/assembly/wusn-video-start.sh</source>
             <filtered>true</filtered>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
             <outputDirectory>bin</outputDirectory>
-            <source>src/assembly/rtsp2webrtc-stop.sh</source>
+            <source>src/assembly/wusn-video-stop.sh</source>
             <filtered>true</filtered>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
         </file>
         <file>
             <outputDirectory>bin</outputDirectory>
-            <source>src/assembly/rtsp2webrtc-start.bat</source>
+            <source>src/assembly/wusn-video-start.bat</source>
             <filtered>true</filtered>
             <fileMode>0755</fileMode>
             <lineEnding>dos</lineEnding>

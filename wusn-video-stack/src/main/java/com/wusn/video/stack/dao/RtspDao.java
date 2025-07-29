@@ -2,7 +2,7 @@ package com.wusn.video.stack.dao;
 
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.dao.BatchBaseDao;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.stack.bean.entity.Rtsp;
 
 /**
  * RTSP 数据访问层。
@@ -10,5 +10,5 @@ import com.wusn.video.stack.bean.entity.RTSP;
  * @author wusn
  * @since 1.0.0
  */
-public interface RTSPDao extends BatchBaseDao<LongIdKey, RTSP> {
+public interface RtspDao extends BatchBaseDao<LongIdKey, Rtsp> {
 }

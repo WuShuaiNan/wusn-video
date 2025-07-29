@@ -3,7 +3,7 @@ package com.wusn.video.sdk.bean.entity;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.dwarfeng.subgrade.sdk.bean.key.FastJsonLongIdKey;
 import com.dwarfeng.subgrade.stack.bean.Bean;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.stack.bean.entity.Rtsp;
 
 import java.util.Objects;
 
@@ -14,15 +14,15 @@ import java.util.Objects;
  *
  * @since 1.0.0
  */
-public class FastJsonRTSP implements Bean {
+public class FastJsonRtsp implements Bean {
 
     private static final long serialVersionUID = 4047626256519104468L;
 
-    public static FastJsonRTSP of(RTSP rtsp) {
+    public static FastJsonRtsp of(Rtsp rtsp) {
         if (Objects.isNull(rtsp)) {
             return null;
         } else {
-            return new FastJsonRTSP(
+            return new FastJsonRtsp(
                     FastJsonLongIdKey.of(rtsp.getKey()),
                     rtsp.getLabel(),
                     rtsp.getUrl(),
@@ -43,10 +43,10 @@ public class FastJsonRTSP implements Bean {
     @JSONField(name = "remark", ordinal = 4)
     private String remark;
 
-    public FastJsonRTSP() {
+    public FastJsonRtsp() {
     }
 
-    public FastJsonRTSP(FastJsonLongIdKey key, String label, String url, String remark) {
+    public FastJsonRtsp(FastJsonLongIdKey key, String label, String url, String remark) {
         this.key = key;
         this.label = label;
         this.url = url;

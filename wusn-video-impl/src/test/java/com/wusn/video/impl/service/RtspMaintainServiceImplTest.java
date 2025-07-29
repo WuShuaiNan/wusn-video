@@ -1,8 +1,8 @@
 package com.wusn.video.impl.service;
 
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
-import com.wusn.video.stack.bean.entity.RTSP;
-import com.wusn.video.stack.service.RTSPMaintainService;
+import com.wusn.video.stack.bean.entity.Rtsp;
+import com.wusn.video.stack.service.RtspMaintainService;
 import org.apache.commons.beanutils.BeanUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -19,18 +19,18 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring/application-context*.xml")
-public class RTSPMaintainServiceImplTest {
+public class RtspMaintainServiceImplTest {
 
     @Autowired
-    private RTSPMaintainService rtspMaintainService;
+    private RtspMaintainService rtspMaintainService;
 
-    private List<RTSP> rtsps;
+    private List<Rtsp> rtsps;
 
     @Before
     public void setUp() {
         rtsps = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            RTSP rtsp = new RTSP(new LongIdKey(i), "label", "url",  "remark");
+            Rtsp rtsp = new Rtsp(new LongIdKey(i), "label", "url",  "remark");
             rtsps.add(rtsp);
         }
     }
@@ -43,17 +43,17 @@ public class RTSPMaintainServiceImplTest {
     @Test
     public void testForCrud() throws Exception {
         try {
-            for (RTSP rtsp : rtsps) {
+            for (Rtsp rtsp : rtsps) {
                 rtspMaintainService.insertOrUpdate(rtsp);
 
-                RTSP testRTSP = rtspMaintainService.get(rtsp.getKey());
-                assertEquals(BeanUtils.describe(rtsp), BeanUtils.describe(testRTSP));
+                Rtsp testRtsp = rtspMaintainService.get(rtsp.getKey());
+                assertEquals(BeanUtils.describe(rtsp), BeanUtils.describe(testRtsp));
                 rtspMaintainService.update(rtsp);
-                testRTSP = rtspMaintainService.get(rtsp.getKey());
-                assertEquals(BeanUtils.describe(rtsp), BeanUtils.describe(testRTSP));
+                testRtsp = rtspMaintainService.get(rtsp.getKey());
+                assertEquals(BeanUtils.describe(rtsp), BeanUtils.describe(testRtsp));
             }
         } finally {
-            for (RTSP rtsp : rtsps) {
+            for (Rtsp rtsp : rtsps) {
                 rtspMaintainService.deleteIfExists(rtsp.getKey());
             }
         }

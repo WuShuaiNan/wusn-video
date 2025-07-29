@@ -5,21 +5,21 @@ import com.dwarfeng.subgrade.sdk.interceptor.analyse.BehaviorAnalyse;
 import com.dwarfeng.subgrade.sdk.interceptor.analyse.SkipRecord;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.exception.CacheException;
-import com.wusn.video.sdk.bean.entity.FastJsonRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
-import com.wusn.video.stack.cache.RTSPCache;
+import com.wusn.video.sdk.bean.entity.FastJsonRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
+import com.wusn.video.stack.cache.RtspCache;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
-public class RTSPCacheImpl implements RTSPCache {
+public class RtspCacheImpl implements RtspCache {
 
-    private final RedisBatchBaseCache<LongIdKey, RTSP, FastJsonRTSP> rtspBatchBaseDelegate;
+    private final RedisBatchBaseCache<LongIdKey, Rtsp, FastJsonRtsp> rtspBatchBaseDelegate;
 
-    public RTSPCacheImpl(
-            RedisBatchBaseCache<LongIdKey, RTSP, FastJsonRTSP> rtspBatchBaseDelegate
+    public RtspCacheImpl(
+            RedisBatchBaseCache<LongIdKey, Rtsp, FastJsonRtsp> rtspBatchBaseDelegate
     ) {
         this.rtspBatchBaseDelegate = rtspBatchBaseDelegate;
     }
@@ -34,14 +34,14 @@ public class RTSPCacheImpl implements RTSPCache {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public RTSP get(LongIdKey key) throws CacheException {
+    public Rtsp get(LongIdKey key) throws CacheException {
         return rtspBatchBaseDelegate.get(key);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void push(RTSP value, long timeout) throws CacheException {
+    public void push(Rtsp value, long timeout) throws CacheException {
         rtspBatchBaseDelegate.push(value, timeout);
     }
 
@@ -77,14 +77,14 @@ public class RTSPCacheImpl implements RTSPCache {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public List<RTSP> batchGet(@SkipRecord List<LongIdKey> keys) throws CacheException {
+    public List<Rtsp> batchGet(@SkipRecord List<LongIdKey> keys) throws CacheException {
         return rtspBatchBaseDelegate.batchGet(keys);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void batchPush(@SkipRecord List<RTSP> entities, long timeout) throws CacheException {
+    public void batchPush(@SkipRecord List<Rtsp> entities, long timeout) throws CacheException {
         rtspBatchBaseDelegate.batchPush(entities, timeout);
     }
 

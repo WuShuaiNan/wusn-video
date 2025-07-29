@@ -6,8 +6,8 @@ import com.dwarfeng.subgrade.impl.service.CustomBatchCrudService;
 import com.dwarfeng.subgrade.stack.bean.key.KeyFetcher;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.log.LogLevel;
-import com.wusn.video.impl.service.operation.RTSPCrudOperation;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.impl.service.operation.RtspCrudOperation;
+import com.wusn.video.stack.bean.entity.Rtsp;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,12 +16,12 @@ public class ServiceConfiguration {
 
     private final ServiceExceptionMapperConfiguration serviceExceptionMapperConfiguration;
 
-    private final RTSPCrudOperation rtspCrudOperation;
+    private final RtspCrudOperation rtspCrudOperation;
 
 
     public ServiceConfiguration(
             ServiceExceptionMapperConfiguration serviceExceptionMapperConfiguration,
-            RTSPCrudOperation rtspCrudOperation
+            RtspCrudOperation rtspCrudOperation
     ) {
         this.serviceExceptionMapperConfiguration = serviceExceptionMapperConfiguration;
         this.rtspCrudOperation = rtspCrudOperation;
@@ -33,7 +33,7 @@ public class ServiceConfiguration {
     }
 
     @Bean
-    public CustomBatchCrudService<LongIdKey, RTSP> rtspBatchCustomCrudService() {
+    public CustomBatchCrudService<LongIdKey, Rtsp> rtspBatchCustomCrudService() {
         return new CustomBatchCrudService<>(
                 rtspCrudOperation,
                 new ExceptionKeyFetcher<>(),

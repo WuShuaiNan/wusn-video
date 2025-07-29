@@ -72,7 +72,7 @@
             </props>
         </property>
         <!-- 扫描实体包 -->
-        <property name="packagesToScan" value="com.wusn.rtsp2webrtc.impl.bean.entity"/>
+        <property name="packagesToScan" value="com.wusn.video.impl.bean.entity"/>
         <!-- 扫描hbm.xml文件 -->
         <!-- <property name="mappingLocations" value="classpath:entity/*.hbm.xml"></property> -->
     </bean>

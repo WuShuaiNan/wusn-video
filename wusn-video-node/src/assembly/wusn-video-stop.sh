@@ -1,6 +1,6 @@
 #!/bin/sh
 # 程序的根目录
-basedir="/usr/local/rtsp2webrtc"
+basedir="/usr/local/wusn-video"
 
-PID=$(cat "$basedir/rtsp2webrtc.pid")
+PID=$(cat "$basedir/wusn-video.pid")
 kill "$PID"

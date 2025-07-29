@@ -2,7 +2,7 @@ package com.wusn.video.stack.service;
 
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.service.BatchCrudService;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.stack.bean.entity.Rtsp;
 
 /**
  * RTSP 维护服务。
@@ -10,5 +10,5 @@ import com.wusn.video.stack.bean.entity.RTSP;
  * @author wusn
  * @since 1.0.0
  */
-public interface RTSPMaintainService extends BatchCrudService<LongIdKey, RTSP> {
+public interface RtspMaintainService extends BatchCrudService<LongIdKey, Rtsp> {
 }

@@ -4,25 +4,25 @@ import com.dwarfeng.subgrade.sdk.exception.ServiceExceptionCodes;
 import com.dwarfeng.subgrade.sdk.service.custom.operation.BatchCrudOperation;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.exception.ServiceException;
-import com.wusn.video.stack.bean.entity.RTSP;
-import com.wusn.video.stack.cache.RTSPCache;
-import com.wusn.video.stack.dao.RTSPDao;
+import com.wusn.video.stack.bean.entity.Rtsp;
+import com.wusn.video.stack.cache.RtspCache;
+import com.wusn.video.stack.dao.RtspDao;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class RTSPCrudOperation implements BatchCrudOperation<LongIdKey, RTSP> {
+public class RtspCrudOperation implements BatchCrudOperation<LongIdKey, Rtsp> {
 
-    private final RTSPDao rtspDao;
-    private final RTSPCache rtspCache;
+    private final RtspDao rtspDao;
+    private final RtspCache rtspCache;
 
     @Value("${cache.timeout.entity.rtsp}")
     private long RTSPTimeout;
 
-    public RTSPCrudOperation(
-            RTSPDao rtspDao, RTSPCache rtspCache
+    public RtspCrudOperation(
+            RtspDao rtspDao, RtspCache rtspCache
     ) {
         this.rtspDao = rtspDao;
         this.rtspCache = rtspCache;
@@ -34,27 +34,27 @@ public class RTSPCrudOperation implements BatchCrudOperation<LongIdKey, RTSP> {
     }
 
     @Override
-    public RTSP get(LongIdKey key) throws Exception {
+    public Rtsp get(LongIdKey key) throws Exception {
         if (rtspCache.exists(key)) {
             return rtspCache.get(key);
         } else {
             if (!rtspDao.exists(key)) {
                 throw new ServiceException(ServiceExceptionCodes.ENTITY_NOT_EXIST);
             }
-            RTSP rtsp = rtspDao.get(key);
+            Rtsp rtsp = rtspDao.get(key);
             rtspCache.push(rtsp, RTSPTimeout);
             return rtsp;
         }
     }
 
     @Override
-    public LongIdKey insert(RTSP rtsp) throws Exception {
+    public LongIdKey insert(Rtsp rtsp) throws Exception {
         rtspCache.push(rtsp, RTSPTimeout);
         return rtspDao.insert(rtsp);
     }
 
     @Override
-    public void update(RTSP rtsp) throws Exception {
+    public void update(Rtsp rtsp) throws Exception {
         rtspCache.push(rtsp, RTSPTimeout);
         rtspDao.update(rtsp);
     }
@@ -77,27 +77,27 @@ public class RTSPCrudOperation implements BatchCrudOperation<LongIdKey, RTSP> {
     }
 
     @Override
-    public List<RTSP> batchGet(List<LongIdKey> keys) throws Exception {
+    public List<Rtsp> batchGet(List<LongIdKey> keys) throws Exception {
         if (rtspCache.allExists(keys)) {
             return rtspCache.batchGet(keys);
         } else {
             if (!rtspDao.allExists(keys)) {
                 throw new ServiceException(ServiceExceptionCodes.ENTITY_NOT_EXIST);
             }
-            List<RTSP> rtsps = rtspDao.batchGet(keys);
+            List<Rtsp> rtsps = rtspDao.batchGet(keys);
             rtspCache.batchPush(rtsps, RTSPTimeout);
             return rtsps;
         }
     }
 
     @Override
-    public List<LongIdKey> batchInsert(List<RTSP> rtsps) throws Exception {
+    public List<LongIdKey> batchInsert(List<Rtsp> rtsps) throws Exception {
         rtspCache.batchPush(rtsps, RTSPTimeout);
         return rtspDao.batchInsert(rtsps);
     }
 
     @Override
-    public void batchUpdate(List<RTSP> rtsps) throws Exception {
+    public void batchUpdate(List<Rtsp> rtsps) throws Exception {
         rtspCache.batchPush(rtsps, RTSPTimeout);
         rtspDao.batchUpdate(rtsps);
     }

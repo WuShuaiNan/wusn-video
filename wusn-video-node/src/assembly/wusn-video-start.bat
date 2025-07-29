@@ -1,7 +1,7 @@
 @echo off
 
 rem 程序的根目录
-SET basedir=C:\Program Files\rtsp2webrtc
+SET basedir=C:\Program Files\wusn-video
 rem 日志的根目录
 SET logdir=%basedir%\logs
 
@@ -40,7 +40,7 @@ SET java_fixed_opts=^
 
 rem 打开目录，执行程序
 cd "%basedir%"
-start "rtsp2webrtc" /MAX ^
+start "wusn-video" /MAX ^
   java -classpath "lib\*;libext\*" ^
   %jvm_memory_opts% ^
   %java_log_encoding_opts% ^

@@ -4,8 +4,8 @@ import com.dwarfeng.subgrade.sdk.bean.key.HibernateLongIdKey;
 import com.dwarfeng.subgrade.sdk.bean.key.HibernateStringIdKey;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.bean.key.StringIdKey;
-import com.wusn.video.impl.bean.entity.HibernateRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.impl.bean.entity.HibernateRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -33,8 +33,8 @@ public interface HibernateMapper {
 
     // 自定义映射
     @Mapping(target = "longId", ignore = true)
-    HibernateRTSP rtspToHibernate(RTSP rtsp);
+    HibernateRtsp rtspToHibernate(Rtsp rtsp);
 
     @InheritInverseConfiguration
-    RTSP rtspFromHibernate(HibernateRTSP hibernateRTSP);
+    Rtsp rtspFromHibernate(HibernateRtsp hibernateRTSP);
 }

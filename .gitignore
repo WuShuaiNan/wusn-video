@@ -52,15 +52,11 @@ buildNumber.properties
 #################
 ## Logger Files
 #################
-/rtsp2webrtc-impl/logs/
-/rtsp2webrtc-node/logs/
+/wusn-video-node/logs/
+/wusn-video-impl/logs/
 
 #################
 ## Configuration Files
 #################
-/rtsp2webrtc-impl/conf/
-/rtsp2webrtc-node/conf/
 /wusn-video-impl/conf/
 /wusn-video-node/conf/
-/wusn-video-node/logs/
-/wusn-video-impl/logs/

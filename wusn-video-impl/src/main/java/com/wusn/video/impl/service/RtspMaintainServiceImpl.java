@@ -5,20 +5,20 @@ import com.dwarfeng.subgrade.sdk.interceptor.analyse.BehaviorAnalyse;
 import com.dwarfeng.subgrade.sdk.interceptor.analyse.SkipRecord;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.exception.ServiceException;
-import com.wusn.video.stack.bean.entity.RTSP;
-import com.wusn.video.stack.service.RTSPMaintainService;
+import com.wusn.video.stack.bean.entity.Rtsp;
+import com.wusn.video.stack.service.RtspMaintainService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class RTSPMaintainServiceImpl implements RTSPMaintainService {
+public class RtspMaintainServiceImpl implements RtspMaintainService {
 
-    private final CustomBatchCrudService<LongIdKey, RTSP> crudService;
+    private final CustomBatchCrudService<LongIdKey, Rtsp> crudService;
 
-    public RTSPMaintainServiceImpl(
-            CustomBatchCrudService<LongIdKey, RTSP> crudService
+    public RtspMaintainServiceImpl(
+            CustomBatchCrudService<LongIdKey, Rtsp> crudService
     ) {
         this.crudService = crudService;
     }
@@ -33,21 +33,21 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public RTSP get(LongIdKey key) throws ServiceException {
+    public Rtsp get(LongIdKey key) throws ServiceException {
         return crudService.get(key);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public LongIdKey insert(RTSP element) throws ServiceException {
+    public LongIdKey insert(Rtsp element) throws ServiceException {
         return crudService.insert(element);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void update(RTSP element) throws ServiceException {
+    public void update(Rtsp element) throws ServiceException {
         crudService.update(element);
     }
 
@@ -61,21 +61,21 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public RTSP getIfExists(LongIdKey key) throws ServiceException {
+    public Rtsp getIfExists(LongIdKey key) throws ServiceException {
         return crudService.getIfExists(key);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public LongIdKey insertIfNotExists(RTSP element) throws ServiceException {
+    public LongIdKey insertIfNotExists(Rtsp element) throws ServiceException {
         return crudService.insertIfNotExists(element);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void updateIfExists(RTSP element) throws ServiceException {
+    public void updateIfExists(Rtsp element) throws ServiceException {
         crudService.updateIfExists(element);
     }
 
@@ -89,7 +89,7 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public LongIdKey insertOrUpdate(RTSP element) throws ServiceException {
+    public LongIdKey insertOrUpdate(Rtsp element) throws ServiceException {
         return crudService.insertOrUpdate(element);
     }
 
@@ -111,7 +111,7 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public List<RTSP> batchGet(@SkipRecord List<LongIdKey> keys) throws ServiceException {
+    public List<Rtsp> batchGet(@SkipRecord List<LongIdKey> keys) throws ServiceException {
         return crudService.batchGet(keys);
     }
 
@@ -119,14 +119,14 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public List<LongIdKey> batchInsert(@SkipRecord List<RTSP> elements) throws ServiceException {
+    public List<LongIdKey> batchInsert(@SkipRecord List<Rtsp> elements) throws ServiceException {
         return crudService.batchInsert(elements);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void batchUpdate(@SkipRecord List<RTSP> elements) throws ServiceException {
+    public void batchUpdate(@SkipRecord List<Rtsp> elements) throws ServiceException {
         crudService.batchUpdate(elements);
     }
 
@@ -141,7 +141,7 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public List<RTSP> batchGetIfExists(@SkipRecord List<LongIdKey> keys) throws ServiceException {
+    public List<Rtsp> batchGetIfExists(@SkipRecord List<LongIdKey> keys) throws ServiceException {
         return crudService.batchGetIfExists(keys);
     }
 
@@ -149,14 +149,14 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public List<LongIdKey> batchInsertIfExists(@SkipRecord List<RTSP> elements) throws ServiceException {
+    public List<LongIdKey> batchInsertIfExists(@SkipRecord List<Rtsp> elements) throws ServiceException {
         return crudService.batchInsertIfExists(elements);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void batchUpdateIfExists(@SkipRecord List<RTSP> elements) throws ServiceException {
+    public void batchUpdateIfExists(@SkipRecord List<Rtsp> elements) throws ServiceException {
         crudService.batchUpdateIfExists(elements);
     }
 
@@ -171,7 +171,7 @@ public class RTSPMaintainServiceImpl implements RTSPMaintainService {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public List<LongIdKey> batchInsertOrUpdate(@SkipRecord List<RTSP> elements) throws ServiceException {
+    public List<LongIdKey> batchInsertOrUpdate(@SkipRecord List<Rtsp> elements) throws ServiceException {
         return crudService.batchInsertOrUpdate(elements);
     }
 }

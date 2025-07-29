@@ -6,21 +6,21 @@ import com.dwarfeng.subgrade.sdk.interceptor.analyse.BehaviorAnalyse;
 import com.dwarfeng.subgrade.sdk.interceptor.analyse.SkipRecord;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.exception.DaoException;
-import com.wusn.video.impl.bean.entity.HibernateRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
-import com.wusn.video.stack.dao.RTSPDao;
+import com.wusn.video.impl.bean.entity.HibernateRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
+import com.wusn.video.stack.dao.RtspDao;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
-public class RTSPDaoImpl implements RTSPDao {
+public class RtspDaoImpl implements RtspDao {
 
-    private final HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, RTSP, HibernateRTSP> batchBaseDao;
+    private final HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, Rtsp, HibernateRtsp> batchBaseDao;
 
-    public RTSPDaoImpl(
-            HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, RTSP, HibernateRTSP> batchBaseDao
+    public RtspDaoImpl(
+            HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, Rtsp, HibernateRtsp> batchBaseDao
     ) {
         this.batchBaseDao = batchBaseDao;
     }
@@ -28,14 +28,14 @@ public class RTSPDaoImpl implements RTSPDao {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public LongIdKey insert(RTSP element) throws DaoException {
+    public LongIdKey insert(Rtsp element) throws DaoException {
         return batchBaseDao.insert(element);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void update(RTSP element) throws DaoException {
+    public void update(Rtsp element) throws DaoException {
         batchBaseDao.update(element);
     }
 
@@ -56,7 +56,7 @@ public class RTSPDaoImpl implements RTSPDao {
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public RTSP get(LongIdKey key) throws DaoException {
+    public Rtsp get(LongIdKey key) throws DaoException {
         return batchBaseDao.get(key);
     }
 
@@ -64,14 +64,14 @@ public class RTSPDaoImpl implements RTSPDao {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public List<LongIdKey> batchInsert(@SkipRecord List<RTSP> elements) throws DaoException {
+    public List<LongIdKey> batchInsert(@SkipRecord List<Rtsp> elements) throws DaoException {
         return batchBaseDao.batchInsert(elements);
     }
 
     @Override
     @BehaviorAnalyse
     @Transactional(transactionManager = "hibernateTransactionManager", rollbackFor = Exception.class)
-    public void batchUpdate(@SkipRecord List<RTSP> elements) throws DaoException {
+    public void batchUpdate(@SkipRecord List<Rtsp> elements) throws DaoException {
         batchBaseDao.batchUpdate(elements);
     }
 
@@ -100,7 +100,7 @@ public class RTSPDaoImpl implements RTSPDao {
     @BehaviorAnalyse
     @SkipRecord
     @Transactional(transactionManager = "hibernateTransactionManager", readOnly = true, rollbackFor = Exception.class)
-    public List<RTSP> batchGet(@SkipRecord List<LongIdKey> keys) throws DaoException {
+    public List<Rtsp> batchGet(@SkipRecord List<LongIdKey> keys) throws DaoException {
         return batchBaseDao.batchGet(keys);
     }
 }

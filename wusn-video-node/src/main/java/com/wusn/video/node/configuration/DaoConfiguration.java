@@ -6,8 +6,8 @@ import com.dwarfeng.subgrade.sdk.bean.key.HibernateLongIdKey;
 import com.dwarfeng.subgrade.sdk.hibernate.modification.DefaultDeletionMod;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.wusn.video.impl.bean.HibernateMapper;
-import com.wusn.video.impl.bean.entity.HibernateRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.impl.bean.entity.HibernateRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,12 +28,12 @@ public class DaoConfiguration {
     }
 
     @Bean
-    public HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, RTSP, HibernateRTSP> rtspHibernateBatchBaseDao() {
+    public HibernateBatchBaseDao<LongIdKey, HibernateLongIdKey, Rtsp, HibernateRtsp> rtspHibernateBatchBaseDao() {
         return new HibernateBatchBaseDao<>(
                 template,
                 new MapStructBeanTransformer<>(LongIdKey.class, HibernateLongIdKey.class, HibernateMapper.class),
-                new MapStructBeanTransformer<>(RTSP.class, HibernateRTSP.class, HibernateMapper.class),
-                HibernateRTSP.class,
+                new MapStructBeanTransformer<>(Rtsp.class, HibernateRtsp.class, HibernateMapper.class),
+                HibernateRtsp.class,
                 new DefaultDeletionMod<>(),
                 batchSize
         );

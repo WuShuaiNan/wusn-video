@@ -9,17 +9,17 @@ import com.dwarfeng.subgrade.stack.exception.HandlerException;
  * @author wusn
  * @since 1.0.0
  */
-public class RTSPNotExistsException extends HandlerException {
+public class RtspNotExistsException extends HandlerException {
 
     private static final long serialVersionUID = -5394896658989945556L;
 
     private final LongIdKey rtspKey;
 
-    public RTSPNotExistsException(LongIdKey rtspKey) {
+    public RtspNotExistsException(LongIdKey rtspKey) {
         this.rtspKey = rtspKey;
     }
 
-    public RTSPNotExistsException(Throwable cause, LongIdKey rtspKey) {
+    public RtspNotExistsException(Throwable cause, LongIdKey rtspKey) {
         super(cause);
         this.rtspKey = rtspKey;
     }

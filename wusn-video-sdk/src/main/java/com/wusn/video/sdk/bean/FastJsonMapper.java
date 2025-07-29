@@ -4,8 +4,8 @@ import com.dwarfeng.subgrade.sdk.bean.key.FastJsonLongIdKey;
 import com.dwarfeng.subgrade.sdk.bean.key.FastJsonStringIdKey;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.dwarfeng.subgrade.stack.bean.key.StringIdKey;
-import com.wusn.video.sdk.bean.entity.FastJsonRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.sdk.bean.entity.FastJsonRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 
@@ -30,8 +30,8 @@ public interface FastJsonMapper {
     StringIdKey stringIdKeyFromFastJson(FastJsonStringIdKey fastJsonStringIdKey);
 
     // 自定义实体映射
-    FastJsonRTSP rtspToFastJson(RTSP rtsp);
+    FastJsonRtsp rtspToFastJson(Rtsp rtsp);
 
     @InheritInverseConfiguration
-    RTSP rtspFromFastJson(FastJsonRTSP fastJsonRTSP);
+    Rtsp rtspFromFastJson(FastJsonRtsp fastJsonRtsp);
 }

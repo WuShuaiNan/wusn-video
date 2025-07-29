@@ -9,17 +9,17 @@ import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
  * @author wusn
  * @since 1.0.0
  */
-public class RTSP implements Entity<LongIdKey> {
+public class Rtsp implements Entity<LongIdKey> {
 
     private LongIdKey key;
     private String label;
     private String url;
     private String remark;
 
-    public RTSP() {
+    public Rtsp() {
     }
 
-    public RTSP(LongIdKey key, String label, String url, String remark) {
+    public Rtsp(LongIdKey key, String label, String url, String remark) {
         this.key = key;
         this.label = label;
         this.url = url;

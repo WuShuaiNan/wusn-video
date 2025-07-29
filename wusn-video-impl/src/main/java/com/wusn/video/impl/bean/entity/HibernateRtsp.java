@@ -10,7 +10,7 @@ import java.util.Optional;
 @Entity
 @IdClass(HibernateLongIdKey.class)
 @Table(name = "tbl_rtsp")
-public class HibernateRTSP implements Bean {
+public class HibernateRtsp implements Bean {
 
     private static final long serialVersionUID = 6295780751803394260L;
 
@@ -29,7 +29,7 @@ public class HibernateRTSP implements Bean {
     @Column(name = "remark", length = Constraints.LENGTH_REMARK)
     private String remark;
 
-    public HibernateRTSP() {
+    public HibernateRtsp() {
     }
 
     // -----------------------------------------------------------映射用属性区-----------------------------------------------------------
@@ -77,7 +77,7 @@ public class HibernateRTSP implements Bean {
 
     @Override
     public String toString() {
-        return "HibernateRTSP{" +
+        return "HibernateRtsp{" +
                 "longId=" + longId +
                 ", label='" + label + '\'' +
                 ", url='" + url + '\'' +

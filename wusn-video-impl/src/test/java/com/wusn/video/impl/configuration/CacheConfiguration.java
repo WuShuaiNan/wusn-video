@@ -5,8 +5,8 @@ import com.dwarfeng.subgrade.impl.cache.RedisBatchBaseCache;
 import com.dwarfeng.subgrade.sdk.redis.formatter.LongIdStringKeyFormatter;
 import com.dwarfeng.subgrade.stack.bean.key.LongIdKey;
 import com.wusn.video.sdk.bean.FastJsonMapper;
-import com.wusn.video.sdk.bean.entity.FastJsonRTSP;
-import com.wusn.video.stack.bean.entity.RTSP;
+import com.wusn.video.sdk.bean.entity.FastJsonRtsp;
+import com.wusn.video.stack.bean.entity.Rtsp;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +26,11 @@ public class CacheConfiguration {
 
     @Bean
     @SuppressWarnings("unchecked")
-    public RedisBatchBaseCache<LongIdKey, RTSP, FastJsonRTSP> rtspRedisBatchBaseCache() {
+    public RedisBatchBaseCache<LongIdKey, Rtsp, FastJsonRtsp> rtspRedisBatchBaseCache() {
         return new RedisBatchBaseCache<>(
-                (RedisTemplate<String, FastJsonRTSP>) template,
+                (RedisTemplate<String, FastJsonRtsp>) template,
                 new LongIdStringKeyFormatter(rtspPrefix),
-                new MapStructBeanTransformer<>(RTSP.class, FastJsonRTSP.class, FastJsonMapper.class)
+                new MapStructBeanTransformer<>(Rtsp.class, FastJsonRtsp.class, FastJsonMapper.class)
         );
     }
 

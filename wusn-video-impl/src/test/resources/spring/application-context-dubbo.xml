@@ -9,7 +9,7 @@
         http://dubbo.apache.org/schema/dubbo/dubbo.xsd"
 >
 
-    <dubbo:application name="jierpls-hr-test">
+    <dubbo:application name="wusn-video-test">
         <dubbo:parameter key="qos.enable" value="false"/>
     </dubbo:application>
 
