@@ -11,7 +11,7 @@
   <parent>
     <artifactId>wusn-video</artifactId>
     <groupId>com.wusn</groupId>
-    <version>1.0.0.a-SNAPSHOT</version>
+    <version>1.0.0.a</version>
   </parent>
 
   <artifactId>wusn-video-node</artifactId>

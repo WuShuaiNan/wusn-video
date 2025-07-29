@@ -10,7 +10,7 @@
 
   <groupId>com.wusn</groupId>
   <artifactId>wusn-video</artifactId>
-  <version>1.0.0.a-SNAPSHOT</version>
+  <version>1.0.0.a</version>
 
   <packaging>pom</packaging>
 
@@ -411,22 +411,22 @@
       <dependency>
         <groupId>com.wusn</groupId>
         <artifactId>wusn-video-stack</artifactId>
-        <version>1.0.0.a-SNAPSHOT</version>
+        <version>1.0.0.a</version>
       </dependency>
       <dependency>
         <groupId>com.wusn</groupId>
         <artifactId>wusn-video-sdk</artifactId>
-        <version>1.0.0.a-SNAPSHOT</version>
+        <version>1.0.0.a</version>
       </dependency>
       <dependency>
         <groupId>com.wusn</groupId>
         <artifactId>wusn-video-impl</artifactId>
-        <version>1.0.0.a-SNAPSHOT</version>
+        <version>1.0.0.a</version>
       </dependency>
       <dependency>
         <groupId>com.wusn</groupId>
         <artifactId>wusn-video-node</artifactId>
-        <version>1.0.0.a-SNAPSHOT</version>
+        <version>1.0.0.a</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
