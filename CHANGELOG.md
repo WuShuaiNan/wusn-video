@@ -5,6 +5,7 @@
 #### 功能构建
 
 - Rtsp 实体新增分页查询
+- 新增 JSFixedFastJsonRtsp 
 
 #### Bug修复
 
